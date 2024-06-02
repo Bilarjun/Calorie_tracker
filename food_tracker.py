@@ -8,7 +8,7 @@ from datetime import datetime
 # Firebase initialization
 if not firebase_admin._apps:
     cred = credentials.Certificate(
-        r"C:\Users\Arjun Bilupati\Downloads\foodtracker-79ec9-firebase-adminsdk-10wl9-af1a707ca6.json")
+        r"foodtracker-79ec9-firebase-adminsdk-10wl9-af1a707ca6.json")
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
