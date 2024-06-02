@@ -407,9 +407,11 @@ def main():
             st.sidebar.success("Thank you for your feedback!")
         st.sidebar.markdown("---")
         if st.sidebar.button("⛔ Logout", key="logout_button"):
-            del st.session_state["user_id"]
-            st.session_state.page = "auth"  # Set page to "auth" after logout
-            st.experimental_rerun()
+            if "user_id" in st.session_state:
+                del st.session_state["user_id"]
+                st.session_state.page = "auth"  # Set page to "auth" after logout only if user_id exists
+                st.experimental_rerun()
+
 
 
 if __name__ == "__main__":
