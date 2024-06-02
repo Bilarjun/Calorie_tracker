@@ -185,13 +185,17 @@ def calculate_bmi(weight, height):
 
 
 # Function to calculate progress towards daily goal
+# Calculate progress towards daily goal
 def calculate_progress(food_log_df, daily_calories):
+    if daily_calories == 0:
+        return 0.0  # Return 0% progress if daily calories is zero
     if not food_log_df.empty:
         total_calories = food_log_df["Calories"].sum()
         progress_percentage = min(total_calories / daily_calories, 1.0)
     else:
         progress_percentage = 0.0
     return progress_percentage
+
 
 
 # Function to calculate daily calorie intake based on weight goal
